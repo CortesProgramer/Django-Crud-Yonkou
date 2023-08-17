@@ -1,0 +1,26 @@
+{% extends 'layouts/menu.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanks</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Shanks</h1>
+    <br>
+    <hr>
+    <h4>Al llenar los datos en este formulario podras ver los entrenamientos que shanks tiene programados, aparte podras conocer informacion sobre este yonkou</h4>
+    <form method="POST" style="text-align: center; margin-top: 25px;">
+        {% csrf_token %}
+        {{shanksForm}}
+        <br>
+        <button type="submit" style="padding: 7px; margin-top: 10px;">Save</button>
+    </form>
+    <a href="{% url 'shanksInfo' %}"><button style="margin-bottom: 300px; padding: 8px;">Ver Informacion</button></a>
+    {% include 'layouts/footer.html' %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% extends 'layouts/menu.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <h1 style="color: rgb(190, 158, 0);">Luffy</h1>
+    <div>
+        <center><img src="{% static 'luffy.png' %}" alt="luffy" style="width: 200px; height: 270px; margin-top: 20px;"></center>
+    </div>
+    <h4>Monkey D. Luffy (モンキー・Ｄ・ルフィ Monkī Dī Rufi?), más conocido como Luffy «Sombrero de Paja» (麦わらのルフィ Mugiwara no Rufi?), es el protagonista principal de la serie de manga y anime One Piece. Es el capitán y fundador de los Piratas de Sombrero de Paja así como un de los Cuatro Emperadores que gobiernan los mares del Nuevo Mundo. Comió una fruta del diablo llamada fruta Gomu Gomu, que le convirtió en un hombre de goma. Además de esto, posee varias habilidades que le hacen ser un pirata más que especial; un gran ejemplo de ello es la capacidad de usar el haoshoku haki ―que sólo lo posee una persona dentro de un millón― y poseer también los otros dos tipos de haki.</h4>
+    <p>Luffy se ha ganado una enorme reputación en todo el mundo por causar problemas incluso entre los Siete Guerreros del Mar y la Marina, cometiendo crímenes y acciones que se consideran amenazadoras contra el Gobierno Mundial.</p>
+    <br>
+    <hr>
+    <h2>3 tipos de haki y fruta despertada</h2>
+    <p>El yonkou luffy se especializa en los 3 tipos de haki y tiene su fruta del diablo despertada, espero que hayas elegido bien a tu entrenador.</p>
+    <br>
+    <hr>
+    <br>
+    <h2>Los registros de luffy</h2>
+    {% for luffydbs in luffydb %}
+    <div>
+        <p>ID <b>{{luffydbs.idLuffy}}</b></p>
+        <p>Nombre <b>{{luffydbs.nombre}}</b></p>
+        <p>Haki <b>{{luffydbs.haki}}</b></p>
+        <p>edad <b>{{luffydbs.edad}}</b></p>
+        <p>dia <b>{{luffydbs.dia}}</b></p>
+        <p>hora <b>{{luffydbs.hora}}</b></p>
+        <form method="POST" action="{% url 'luffyInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="luffy_id" value="{{ luffydbs.idLuffy }}">
+            <button type="submit">Eliminar</button>
+        </form>
+        <br>
+        <hr>
+    </div>
+    {% endfor %}
+    <br>
+    <center>
+        <a href="{% url 'luffy' %}"><button>Volver a agendar con luffy</button></a>
+    </center>
+    <br>
+    <center>
+        <a href="{% url 'home' %}"><button>Volver a home</button></a>
+    </center>
+    {% include 'layouts/footer.html' %}
+    {% endblock %}
+</body>
+</html>

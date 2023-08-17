@@ -1,0 +1,54 @@
+{% extends 'layouts/menu.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teach</title>
+</head>
+<body>
+    {% block content %}
+    <h1 style="color: rgb(0, 0, 0);">Kurohige</h1>
+    <div>
+        <center><img src="{% static 'teach.png' %}" alt="teach" style="width: 200px; height: 270px; margin-top: 20px;"></center>
+    </div>
+    <h4>Marshall D. Teach (マーシャル・D・ティーチ Mārusharu D. Tīchi?), más conocido como Barbanegra (黒ひげ Kurohige?) es el almirante de los Piratas de Barbanegra y uno de los Cuatro Emperadores que gobiernan los mares del Nuevo Mundo, estatus que consolidó tras su victoria en la Batalla de la Venganza frente a los Piratas de Barbablanca. Actualmente él y su banda se encuentran ocupando Hachinosu.</h4>
+    <p>Inicialmente un aprendiz pirata, Teach formó parte de la segunda división de los Piratas de Barbablanca bajo mando directo de Portgas D. Ace, a quien entregó a la Marina tras el Duelo en la Isla Banaro para posicionarse como uno de los Siete Guerreros del Mar. Fue también el artífice de la masiva liberación de presos en el último nivel de Impel Down. Sus acciones le llevaron a ser visto como uno de los piratas conocidos como "La Peor Generación".</p>
+    <br>
+    <hr>
+    <h2>Fruta del diablo</h2>
+    <p>El yonkou kurohige se especializa en su fruta la yammi yammi no mi, espero que hayas elegido bien a tu entrenador.</p>
+    <br>
+    <hr>
+    <br>
+    <h2>Los registros de kurohige</h2>
+    {% for teachdbs in teachdb %}
+    <div>
+        <p>ID <b>{{teachdbs.idTeach}}</b></p>
+        <p>Nombre <b>{{teachdbs.nombre}}</b></p>
+        <p>Haki <b>{{teachdbs.haki}}</b></p>
+        <p>edad <b>{{teachdbs.edad}}</b></p>
+        <p>dia <b>{{teachdbs.dia}}</b></p>
+        <p>hora <b>{{teachdbs.hora}}</b></p>
+        <form method="POST" action="{% url 'teachInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="teach_id" value="{{teachdbs.idTeach}}">
+            <button type="submit">Eliminar</button>
+        </form>
+        <br>
+        <hr>
+    </div>
+    {% endfor %}
+    <br>
+    <center>
+        <a href="{% url 'teach' %}"><button>Volver a agendar con teach</button></a>
+    </center>
+    <br>
+    <center>
+        <a href="{% url 'home' %}"><button>Volver a home</button></a>
+    </center>
+    {% include 'layouts/footer.html'%}
+    {% endblock %}
+</body>
+</html>

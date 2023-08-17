@@ -1,0 +1,54 @@
+{% extends 'layouts/menu.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanks</title>
+</head>
+<body>
+    {% block content %}
+    <h1 style="color: rgb(154, 29, 29);">Akagami No Shanks</h1>
+    <div>
+        <center><img src="{% static 'shanks.png' %}" alt="shanks" style="width: 200px; height: 270px; margin-top: 20px;"></center>
+    </div>
+    <h4>Shanks el Pelirrojo (赤髪あかがみのシャンクス Akagami no Shankusu), es el capitán de los Piratas del Pelirrojo y uno de los Cuatro Emperadores que gobiernan el Nuevo Mundo. Fue, además, un miembro de la legendaria tripulación de Gol D. Roger, siendo la única banda que logró conquistar con éxito todo Grand Line.</h4>
+    <p>Poco se sabe acerca del poder de Shanks. De acuerdo a lo dicho por Buggy, Shanks es un poderoso guerrero. Lo que se sabe es que, como uno de los Cuatro Emperadores de la segunda mitad del Grand Line, su poder es similar al de Barbablanca (quien es considerado el hombre más fuerte del mundo). También es de destacar el hecho de que Kaidou, quien es conocido como «la Criatura más Poderosa», piense que Shanks sería una de las pocas personas capaces de hacerle frente en combate</p>
+    <br>
+    <hr>
+    <h2>Haki del Rey</h2>
+    <p>El yonkou shanks se especializa en su Haki del rey, espero que hayas elegido bien a tu entrenador.</p>
+    <br>
+    <hr>
+    <br>
+    <h2>Los registros de shanks</h2>
+    {% for shanksdbs in shanksdb %}
+    <div>
+        <p>ID <b>{{shanksdbs.idShanks}}</b></p>
+        <p>Nombre <b>{{shanksdbs.nombre}}</b></p>
+        <p>Haki <b>{{shanksdbs.haki}}</b></p>
+        <p>edad <b>{{shanksdbs.edad}}</b></p>
+        <p>dia <b>{{shanksdbs.dia}}</b></p>
+        <p>hora <b>{{shanksdbs.hora}}</b></p>
+        <form method="POST" action="{% url 'shanksInfo' %}">
+            {% csrf_token %}
+            <input type="hidden" name="shanks_id" value="{{ shanksdbs.idShanks }}">
+            <button type="submit">Eliminar</button>
+        </form>
+        <br>
+        <hr>
+    </div>
+    {% endfor %}
+    <br>
+    <center>
+        <a href="{% url 'shanks' %}"><button>Volver a agendar con shanks</button></a>
+    </center>
+    <br>
+    <center>
+        <a href="{% url 'home' %}"><button>Volver a home</button></a>
+    </center>
+    {% include 'layouts/footer.html' %}
+    {% endblock %}
+</body>
+</html>

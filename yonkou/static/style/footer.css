@@ -1,0 +1,31 @@
+footer {
+    margin-top: 40px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Cambiamos la visualización a flex para que los elementos estén en línea */
+    justify-content: center; /* Centramos los elementos en el pie de página */
+    margin-top: 12px; /* Agregamos un espacio entre el contenido y el pie de página */
+}
+
+footer ul a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+footer ul a:hover {
+    color: #ffcc00;
+}
+
+footer p {
+    margin: 0;
+    font-weight: bold;
+}

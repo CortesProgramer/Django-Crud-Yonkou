@@ -1,0 +1,26 @@
+{% extends 'layouts/menu.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luffy</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Monkey D. Luffy</h1>
+    <br>
+    <hr>
+    <h4>Al llenar los datos en este formulario podras ver los entrenamientos que luffy tiene programados, aparte podras conocer informacion sobre este yonkou</h4>
+    <form method="POST" style="text-align: center; margin-top: 25px;">
+        {% csrf_token %}
+        {{luffyForm}}
+        <br>
+        <button style="margin-top: 15px; padding: 8px;">save</button>
+    </form>
+    <a href="{% url 'luffyInfo' %}"><button style="margin-bottom: 300px; padding: 8px;">Ver informacion</button></a>
+    {% include 'layouts/footer.html'%}
+    {% endblock %}
+</body>
+</html>

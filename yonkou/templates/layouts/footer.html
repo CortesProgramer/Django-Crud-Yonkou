@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style/footer.css' %}">
+</head>
+<body>
+    <footer>
+        <div>
+            <ul>
+                <p><b>Simon Cortes</b></p>
+            </ul>
+            <ul>
+                <a href="https://www.youtube.com/channel/UCNLNj6lcweGfQ9R7GS7sxkg">Youtube</a>
+            </ul>
+            <ul>
+                <a href="https://github.com/CortesProgramer">GitHub</a>
+            </ul>
+            <ul>
+                <a href="https://www.linkedin.com/in/sim%C3%B3n-cortes-90632a25a/">Linkedin</a>
+            </ul>
+        </div>
+    </footer>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

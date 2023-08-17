@@ -1,0 +1,38 @@
+{% extends 'layouts/menu.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+{% load static %}
+{% block content %}
+<body>
+    <h1>Bienvenido a home</h1>
+    <h4>Esta pagina es un proyecto tipo crud para agendar un entrenamiento con un yonkou.</h4>
+    <p>Cada uno de ellos te ofrecera distintos aprendizajes.</p>
+    <p>Al agendar la cita, tus datos seran enviados a una base de datos sqlite3 y magicamente el yonkou que elijas te dara una informacion de interes.</p>
+    <div class="image-container">
+        <div class="image-item">
+            <a href="{% url 'luffy' %}"><img src="{% static 'luffy.png' %}" alt="luffy"></a>
+            <h3><a href="{% url 'luffy' %}">Luffy</a></h3>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'shanks' %}"><img src="{% static 'shanks.png' %}" alt="shanks"></a>
+            <h3><a href="{% url 'shanks' %}">Shanks</a></h3>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'teach' %}"><img src="{% static 'teach.png' %}" alt="teach"></a>
+            <h3><a href="{% url 'teach' %}">Teach</a></h3>
+        </div>
+        <div class="image-item">
+            <a href="{% url 'buggy' %}"><img src="{% static 'buggy.png' %}" alt="buggy"></a>
+            <h3><a href="{% url 'buggy' %}">Buggy</a></h3>
+        </div>
+    </div>
+    <br>
+    {% include 'layouts/footer.html' %}
+{% endblock %}
+</body>
+</html>
